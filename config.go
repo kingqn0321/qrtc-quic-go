@@ -131,5 +131,6 @@ func populateConfig(config *Config) *Config {
 		DisableVersionNegotiationPackets: config.DisableVersionNegotiationPackets,
 		Allow0RTT:                        config.Allow0RTT,
 		Tracer:                           config.Tracer,
+		Disable1RTTEncryption:            config.Disable1RTTEncryption,
 	}
 }

@@ -332,6 +332,10 @@ type Config struct {
 	// Enable QUIC datagram support (RFC 9221).
 	EnableDatagrams bool
 	Tracer          func(context.Context, logging.Perspective, ConnectionID) logging.ConnectionTracer
+
+	// Disable 1RTT encryption
+	// See https://datatracker.ietf.org/doc/html/draft-banks-quic-disable-encryption for details.
+	Disable1RTTEncryption bool
 }
 
 type ClientHelloInfo struct {
@@ -351,4 +355,10 @@ type ConnectionState struct {
 	Used0RTT bool
 	// Version is the QUIC version of the QUIC connection.
 	Version VersionNumber
+	// GSO says if generic segmentation offload is used
+	GSO bool
+	// Disable1RTTEncryption says if support for disable 1RTT encryption was negotiated.
+	// This requires both nodes to support and enable the disable 1RTT encryption (via Config.Disable1RTTEncryption).
+	// If disable 1RTT encryption was negotiated, 1rtt data can be sent and received without encryption.
+	Disable1RTTEncryption bool
 }
