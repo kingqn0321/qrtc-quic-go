@@ -132,5 +132,6 @@ func populateConfig(config *Config) *Config {
 		Allow0RTT:                        config.Allow0RTT,
 		CC:                               config.CC,
 		Tracer:                           config.Tracer,
+		Disable1RTTEncryption:            config.Disable1RTTEncryption,
 	}
 }
